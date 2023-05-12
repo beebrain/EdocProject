@@ -16,7 +16,7 @@ for ($i=0; $i < sizeof($userdata); $i++) {
         <tr>
             <td><?php echo  $row->first ?></td>
             <td><?php echo  $row->last ?></td>
-            <th><a href="<?php echo base_url()."index.php/Usercontroller/delete/".$row->userid ?>">delete</a></th>
+            <th><a href="<?php echo base_url()."index.php/Usercontroller/deactivate/".$row->userid ?>">delete</a></th>
         </tr>
         <?php
 

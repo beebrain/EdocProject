@@ -4,6 +4,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Usercontroller extends CI_Controller {
 
 
+    public function index(){
+        $this->showalluser();
+
+    }
+
     public function showalluser(){
         $this->load->model("memberModel");
         $result = $this->memberModel->getalluser();
@@ -31,7 +36,7 @@ class Usercontroller extends CI_Controller {
     }
 
     public function delete($userid){
-       echo $userid;
+    //    echo $userid;
        $data = array(
         'userid' => $userid
         );
@@ -39,5 +44,16 @@ class Usercontroller extends CI_Controller {
        $this->memberModel->delete($data);
        redirect('/Usercontroller/showalluser', 'location');
     }
+
+    public function deactivate($id){
+        $data = array(
+            'status' => 0
+            );
+        $this->load->model("memberModel");
+        $this->memberModel->update($id,$data);
+        redirect('/Usercontroller/showalluser', 'location');
+
+    }
+
 
 }

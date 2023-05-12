@@ -2,6 +2,7 @@
 class memberModel extends CI_Model{
 
     public function getalluser(){
+        $this->db->where("status",'1');
         $result = $this->db->get("member");
         return $result->result();
     }
@@ -11,13 +12,15 @@ class memberModel extends CI_Model{
 
     }
 
-    
     public function delete($data){
-        // $data = array(
-        //     'userid' => 1,
-        // );
         $this->db->delete('member',$data);
 
+    }
+
+    public function update($id,$data){
+        $this->db->set($data);
+        $this->db->where('userid',$id);
+        $this->db->update('member');
     }
 
 }
