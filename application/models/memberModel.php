@@ -23,4 +23,7 @@ class memberModel extends CI_Model{
         $this->db->update('member');
     }
 
+
+    
+
 }
